@@ -6,3 +6,9 @@
     @apply font-primary text-base;
   }
 }
+input:focus + .error-input{
+  display: none;
+}
+input:focus {
+  @apply text-text1 dark:text-white
+}
