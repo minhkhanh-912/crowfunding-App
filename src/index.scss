@@ -12,3 +12,7 @@ input:focus + .error-input{
 input:focus {
   @apply text-text1 dark:text-white
 }
+.link.active{
+  @apply text-primary;
+  background: #F1FBF7;
+}
