@@ -18,50 +18,61 @@ const sidebarLinks = [
   {
     icon: <IconCampaign></IconCampaign>,
     title: "Campaign",
-    url: "/Campaign",
+    url: "/campaign",
   },
   {
     icon: <IconPayment></IconPayment>,
     title: "Payment",
-    url: "/Payment",
+    url: "/payment",
   },
   {
     icon: <IconWidthdraw></IconWidthdraw>,
     title: "Widthdraw",
-    url: "/Widthdraw",
+    url: "/widthdraw",
   },
   {
     icon: <IconProfile></IconProfile>,
     title: "Profile",
-    url: "/Profile",
+    url: "/profile",
   },
   {
     icon: <IconLogout></IconLogout>,
     title: "Logout",
-    url: "/",
     onClick: () => {},
   },
   {
     icon: <IconSun></IconSun>,
     title: "Light/Dark",
-    url: "/",
     onClick: () => {},
   },
 ];
 const DashboardSidebar = () => {
   return (
-    <div className="w-full md:w-[76px] rounded-3xl bg-white shadow-[10px_10px_20px_rgba(218,_213,_213,_0.15)] px-4 py-10">
-      {sidebarLinks.map((item) => (
-        <NavLink
-          key={item.title}
-          className={classNames(
-            `link flex items-center mb-4 sm:pl-5 sm:py-4 md:pl-0 md:py-0 gap-x-5 md:w-12 md:h-12 md:justify-center md:rounded-xl md:mb-8 text-IconColor last:mt-auto last:mb-0 last:bg-white last:shadow-sdPrimary`,
-            ({isActive})=> isActive && "bg-primary"
-          )}>
-          <span>{item.icon}</span>
-          <span className="md:hidden">{item.title}</span>
-        </NavLink>
-      ))}
+    <div className="w-full md:w-[76px] rounded-3xl bg-white shadow-[10px_10px_20px_rgba(218,_213,_213,_0.15)] px-4 py-10 flex-shrink-0">
+      {sidebarLinks.map((item) => {
+        if (item.onClick)
+          return (
+            <div
+              key={item.title}
+              className={classNames(
+                `link flex items-center mb-4 sm:pl-5 sm:py-4 md:pl-0 md:py-0 gap-x-5 md:w-12 md:h-12 md:justify-center md:rounded-xl md:mb-8 text-IconColor last:mt-auto last:mb-0 last:bg-white last:shadow-sdPrimary cursor-pointer`
+              )}>
+              <span>{item.icon}</span>
+              <span className="md:hidden">{item.title}</span>
+            </div>
+          );
+        return (
+          <NavLink
+            to={item.url}
+            key={item.title}
+            className={classNames(
+              `link flex items-center mb-4 sm:pl-5 sm:py-4 md:pl-0 md:py-0 gap-x-5 md:w-12 md:h-12 md:justify-center md:rounded-xl md:mb-8 text-IconColor last:mt-auto last:mb-0 last:bg-white last:shadow-sdPrimary`
+            )}>
+            <span>{item.icon}</span>
+            <span className="md:hidden">{item.title}</span>
+          </NavLink>
+        );
+      })}
     </div>
   );
 };

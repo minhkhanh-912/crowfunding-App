@@ -36,10 +36,12 @@ const DashboardTopbar = () => {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 10L12 15L17 10" stroke="#A2A2A8" stroke-width="2" />
+            <path d="M7 10L12 15L17 10" stroke="#A2A2A8" strokeWidth="2" />
           </svg>
         </div>
-        <Button className="py-3 bg-secondary px-7">Start a campaign</Button>
+        <Button className="py-3 px-7" kind="secondary" To="/start-campaign">
+          Start a campaign
+        </Button>
         <img
           alt="avartar"
           srcSet="/Logo.png 2x"

@@ -5,9 +5,9 @@ const Label = ({ children, htmlFor = "", className = "" }) => {
   return (
     <label
       htmlFor={htmlFor}
-      className={`inline-block text-sm font-medium cursor-pointer text-text2 dark:text-text3 ${
+      className={`inline-block text-sm font-medium cursor-pointer text-left text-text2 dark:text-text3 ${
         className || ""
-      } mb-3`}>
+      } my-3`}>
       {children}
     </label>
   );

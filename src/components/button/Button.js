@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Button = ({
   children,
   type = "button",
   className = "",
+  kind = "primary",
   isloading = false,
   ...rest
 }) => {
@@ -13,18 +15,41 @@ const Button = ({
   ) : (
     children
   );
+  let classNamedefault =
+    "flex items-center justify-center p-4 text-base font-semibold min-h-[56px] rounded-xl";
+  switch (kind) {
+    case "primary":
+      classNamedefault += " bg-primary text-white";
+      break;
+    case "secondary":
+      classNamedefault += " bg-secondary text-white";
+      break;
+    case "ghost":
+      classNamedefault += " bg-secondary text-secondary bg-opacity-20";
+      break;
+    default:
+      break;
+  }
+  if (rest.To)
+    return (
+      <Link
+        to={rest.To}
+        className={`${classNamedefault} inline-block   ${className}`}>
+        {child}
+      </Link>
+    );
   return (
     <button
       type={type}
       {...rest}
-      className={`flex items-center justify-center p-4 bg-primary text-base font-semibold min-h-[56px] text-white rounded-xl ${
-        !!isloading ? "opacity-50 pointer-events-none" : ""
-      } ${className}`}>
+      className={`${classNamedefault} ${className}`}>
       {child}
     </button>
   );
 };
 
-Button.propTypes = {};
+Button.propTypes = {
+  kind: PropTypes.oneOf(["primary", "secondary", "ghost"]),
+};
 
 export default Button;

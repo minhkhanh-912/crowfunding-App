@@ -4,6 +4,9 @@
 @layer base {
   body {
     @apply font-primary text-base;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 input:focus + .error-input{
@@ -15,4 +18,20 @@ input:focus {
 .link.active{
   @apply text-primary;
   background: #F1FBF7;
+}
+.home-block{
+  @apply mb-8;
+}
+
+.quill {
+   @apply p-4 border  border-strock rounded-xl not-italic min-h-[420px];
+   .ql-toolbar.ql-snow{
+      @apply border-none bg-text4 bg-opacity-10 inline-block px-4 py-3 rounded-xl;
+   }
+   .ql-container.ql-snow{
+    @apply border-none pt-4 text-sm font-primary font-medium;
+   }
+   .ql-editor.ql-blank::before{
+    @apply not-italic text-text4
+   }
 }
