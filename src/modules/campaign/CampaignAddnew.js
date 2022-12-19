@@ -12,12 +12,16 @@ import ImageUploader from "quill-image-uploader";
 import "react-quill/dist/quill.snow.css";
 import { useMemo } from "react";
 import Button from "components/button/Button";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 Quill.register("modules/imageUploader", ImageUploader);
 
 const CampaignAddnew = () => {
   const [content, setContent] = useState("");
   const { control, handleSubmit } = useForm();
   const [selectCategory, setselectCategory] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const handleSelectCategory = (values) => {
     setselectCategory(values);
   };
@@ -187,20 +191,25 @@ const CampaignAddnew = () => {
           <FormRow>
             <FormGroup>
               <Label> Start Date</Label>
-              <Input
-                placeholder=" Start Date"
-                name="start_date"
-                control={control}></Input>
+              <DatePicker
+                className="w-full py-4 text-sm font-medium border rounded-lg outline-none text-text1 bg-transparent px-6"
+                selected={startDate}
+                isClearable
+                onChange={(date) => setStartDate(date)}
+              />
             </FormGroup>
             <FormGroup>
               <Label>End Date</Label>
-              <Input
-                placeholder="End Date"
-                name="end_date"
-                control={control}></Input>
+              <DatePicker
+                className="w-full py-4 text-sm font-medium border rounded-lg outline-none text-text1 bg-transparent px-6"
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+              />
             </FormGroup>
           </FormRow>
-          <Button className="mx-auto mt-5 px-10" kind="primary">Submit new campaign </Button>
+          <Button className="mx-auto mt-5 px-10" kind="primary">
+            Submit new campaign{" "}
+          </Button>
         </form>
       </div>
     </div>

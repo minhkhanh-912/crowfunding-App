@@ -35,3 +35,13 @@ input:focus {
     @apply not-italic text-text4
    }
 }
+.scrollbar-hidden {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+ display: none;
+}
+.react-datepicker__close-icon::after{
+  @apply bg-secondary w-5 h-5
+}

@@ -1,6 +1,11 @@
 import Button from "components/button/Button";
+import Heading from "components/common/Heading";
 import { ImageDefault } from "constains/Global";
 import React from "react";
+import CampaignGrid from "./CampaignGrid";
+import CampaignItem from "./CampaignItem";
+import CampaignPerk from "./CampaignPerk";
+import CampaignSupport from "./CampaignSupport";
 import CamCategory from "./parts/CamCategory";
 import Camdescription from "./parts/Camdescription";
 import CamImage from "./parts/CamImage";
@@ -56,6 +61,42 @@ const CampaignView = () => {
           <Button className="w-full">Back this project</Button>
         </div>
       </div>
+      <div className="flex justify-between items-center bg-white py-5 px-[99px]  mt-[94px] shadow-[1px_0px_1px_rgba(0,_0,_0,_0.25)] mb-6">
+        <div className="flex items-center gap-x-14 text-text3 text-sm font-semibold cursor-pointer">
+          <span className="text-secondary">Campaign</span>
+          <span>Risks</span>
+          <span>FAQ</span>
+          <span>Updates</span>
+          <span>Comments</span>
+        </div>
+        <Button className="px-9">Back this project</Button>
+      </div>
+      <div className="grid grid-cols-[1.3fr,1fr] gap-x-[124px] px-[99px] mb-[70px]">
+        <div>
+          <Heading>Story</Heading>
+          <div className="bg-white w-full">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est
+            dignissimos, ullam consectetur error possimus enim pariatur, dolor
+            mollitia molestias eius, dicta consequuntur corrupti placeat
+            suscipit eligendi tempore nostrum odio dolorem?
+          </div>
+        </div>
+        <div>
+          <CampaignSupport></CampaignSupport>
+          <div className="flex flex-col gap-y-7">
+            <CampaignPerk></CampaignPerk>
+            <CampaignPerk></CampaignPerk>
+            <CampaignPerk></CampaignPerk>
+          </div>
+        </div>
+      </div>
+      <Heading>Popular Campaign</Heading>
+      <CampaignGrid>
+        <CampaignItem></CampaignItem>
+        <CampaignItem></CampaignItem>
+        <CampaignItem></CampaignItem>
+        <CampaignItem></CampaignItem>
+      </CampaignGrid>
     </>
   );
 };

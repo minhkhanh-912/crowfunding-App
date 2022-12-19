@@ -4,11 +4,13 @@ import CampaignPage from "pages/CampaignPage";
 import StartCampaign from "pages/StartCampaign";
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-
+import Modal from "react-modal";
 const SigninPage = lazy(() => import("./pages/SignInPage"));
 const SignUpPage = lazy(() => import("./pages/SignUpPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage"));
-
+const customStyles = {};
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement("#root");
 function App() {
   return (
     <Suspense>

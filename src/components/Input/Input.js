@@ -10,6 +10,7 @@ const Input = ({
   type = "text",
   error = "",
   children,
+  className,
   ...rest
 }) => {
   const { field } = useController({
@@ -30,7 +31,8 @@ const Input = ({
           error.length > 0
             ? "border-error text-transparent dark:text-text1"
             : "border-strock dark:border-darkStroke",
-          children ? "pl-6 pr-14" : "px-6"
+          children ? "pl-6 pr-14" : "px-6",
+          className || ""
         )}
         // className={`${
         //   error.length > 0 ? "border-error text-transparent" : "border-strock dark:border-darkStroke"
